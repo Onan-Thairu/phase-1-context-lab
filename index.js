@@ -32,6 +32,15 @@ function createTimeInEvent(date) {
     return this
 }
 
+function createTimeOutEvent(dateStamp) {
+    const timeoutObj = {
+        type: "TimeOut",
+        hour: parseInt(dateStamp.split(" ")[1], 10),
+        date: dateStamp.split(" ")[0]
+    }
+    this.timeOutEvents.push(timeoutObj)
+    return this
+}
 
 /*
  We're giving you this function. Take a look at it, you might see some usage
