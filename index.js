@@ -42,6 +42,15 @@ function createTimeOutEvent(dateStamp) {
     return this
 }
 
+function hoursWorkedOnDate(date) {
+    const timeinObj = this.timeInEvents.find(dayObj => dayObj.date === date)
+    const timeinHours = timeinObj.hour
+    const timeoutObj = this.timeOutEvents.find(dayObj => dayObj.date === date)
+    const timeoutHours = timeoutObj.hour
+    const time = timeoutHours - timeinHours
+    const hours = Math.floor(time/100)
+    return hours
+}
 /*
  We're giving you this function. Take a look at it, you might see some usage
  that's new and different. That's because we're avoiding a well-known, but
