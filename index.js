@@ -16,6 +16,11 @@ function createEmployeeRecord(array) {
     }
 }
 
+function createEmployeeRecords(arrOfArrays) {
+    let EmployeeRecords = []
+    arrOfArrays.map(array => EmployeeRecords.push(createEmployeeRecord(array)))
+    return EmployeeRecords
+}
 
 /*
  We're giving you this function. Take a look at it, you might see some usage
