@@ -74,3 +74,11 @@ const allWagesFor = function () {
 function findEmployeeByFirstName(srcArray, firstName) {
     return srcArray.find(obj => obj.firstName === firstName)
 }
+
+function calculatePayroll(arrayOfEmpRecords) {
+    let totalPay = 0
+    arrayOfEmpRecords.forEach(obj => {
+        totalPay += allWagesFor.call(obj)
+    })
+    return totalPay
+}
