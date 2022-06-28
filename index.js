@@ -1,23 +1,16 @@
 function createEmployeeRecord(array) {
-    if (array.length === 0) {
-        return {
-            timeInEvents: [],
-            timeOutEvents: []
-        }
-    } else {
-        return {
-            firstName: array[0],
-            familyName: array[1],
-            title: array[2],
-            payPerHour: array[3],
-            timeInEvents: [],
-            timeOutEvents: []
-        }
+    return {
+        firstName: array[0],
+        familyName: array[1],
+        title: array[2],
+        payPerHour: array[3],
+        timeInEvents: [],
+        timeOutEvents: []
     }
 }
 
 function createEmployeeRecords(arrOfArrays) {
-    let EmployeeRecords = []
+    const EmployeeRecords = []
     arrOfArrays.map(array => EmployeeRecords.push(createEmployeeRecord(array)))
     return EmployeeRecords
 }
@@ -51,6 +44,12 @@ function hoursWorkedOnDate(date) {
     const hours = Math.floor(time/100)
     return hours
 }
+
+function wagesEarnedOnDate(date) {
+    const hoursWorked = hoursWorkedOnDate.call(this, date)
+    const payPerHour = this.payPerHour
+    return hoursWorked * payPerHour
+}
 /*
  We're giving you this function. Take a look at it, you might see some usage
  that's new and different. That's because we're avoiding a well-known, but
@@ -72,3 +71,6 @@ const allWagesFor = function () {
     return payable
 }
 
+function findEmployeeByFirstName(srcArray, firstName) {
+    return srcArray.find(obj => obj.firstName === firstName)
+}
